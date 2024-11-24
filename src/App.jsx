@@ -5,9 +5,17 @@ import PersonForm from './components/PersonForm'
 import { useState, useEffect } from 'react'
 import { fetchData } from './util/persistence'
 
+const blankPerson = {id: "", age: "", name: "", email: "", gender: ""
+}
+
+function editPerson(person) {
+setPersonToEdit(person)
+}
+
 function App() {
 
   const [persons, setPersons] = useState([])
+  const [personToEdit, setPersonToEdit] = useState(blankPerson)
 
   const APIURL = "http://localhost:3000/api"
 
@@ -39,8 +47,9 @@ function App() {
     <div>
       <h1>Person DB</h1>
       <p>NU skal der kodes!! xD</p>
-      <PersonList persons={persons} deletePersonbyId={deletePersonbyId} />
-      <PersonForm />
+      <PersonForm blankPerson={blankPerson} personToEdit={personToEdit} />
+      <PersonList persons={persons} deletePersonbyId={deletePersonbyId} editPerson={editPerson} />
+      
     </div>
   )
 }
