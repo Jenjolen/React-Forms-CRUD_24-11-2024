@@ -1,4 +1,4 @@
-function PersonList() {
+function PersonList({persons}) {
     return ( <div>
 
         <h1>List of persons</h1>
@@ -14,17 +14,24 @@ function PersonList() {
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <td>1</td>
-        <td>Bingo</td>
-        <td>34</td>
-        <td>bingo@gmail.com</td>
-        <td>Male</td>
+        
+            {persons.map(
+                (person) => (
+        <tr key={crypto.randomUUID}>
+        <td>{person.id}</td>
+        <td>{person.name}</td>
+        <td>{person.age}</td>
+        <td>{person.email}</td>
+        <td>{person.gender}</td>
         <td>
             <button>Edit</button>
             <button>Delete</button>
         </td>
         </tr>
+                )
+
+            )}
+        
     </tbody>
     </table>
 
