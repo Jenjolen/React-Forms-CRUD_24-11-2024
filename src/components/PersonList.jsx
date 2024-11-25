@@ -15,7 +15,7 @@ function PersonList({persons, deletePersonbyId, editPerson}) {
     </thead>
     <tbody>
         {persons.map((person) => (
-        <tr key={crypto.randomUUID()}>
+        <tr key={person.id}>
         <td>{person.id}</td>
         <td>{person.name}</td>
         <td>{person.age}</td>

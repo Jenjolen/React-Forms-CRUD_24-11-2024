@@ -20,7 +20,7 @@ export function fetchData(url, callback, method, body) {
 
     fetch(url, options)
         .then(res => res.json())
-        .then(data => callback(data))
+        .then(data => callback(data)) // callback kan være en setter function, som opdaterer state i App.jsx
         .catch(err => {
             if (err.status) {
                 err.fullError.then(e => console.log(e.detail))
